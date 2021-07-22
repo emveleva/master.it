@@ -37,3 +37,12 @@ $master-it-theme: mat.define-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+main {
+  display: flex;
+  width: 80%;
+  min-height: 83%;
+  background-color: #f9f8f9;
+  margin: 0 auto;
+  display: flex;
+}

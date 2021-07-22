@@ -1,8 +1,11 @@
 {
-      "users": [
-        
-      ],
-      "courses": [
-      
-      ]
+  "users": [
+    {
+      "email": "martito@gmail.com",
+      "password": "$2a$10$HFAUWjJdbYn4m.wibiuWqubzGkthVfVi/Y8h2MsylZwHeEOuWEo8u",
+      "hiredDevs": [],
+      "id": 1
     }
+  ],
+  "courses": []
+}

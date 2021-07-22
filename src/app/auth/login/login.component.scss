@@ -1,0 +1,26 @@
+main h1 {
+      font-size: 44px;
+      padding: 7%;
+      font-weight: 600;
+      margin: 0 auto;
+      color: #6038af;
+}
+
+.button-purple {
+      background-color: #6038af;
+      color: white;
+      width: 45%;
+      align-self: center;
+    }
+
+    main {
+          flex-direction: column;
+          align-items: center;
+    }
+
+    main form {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          width: 20%;
+    }

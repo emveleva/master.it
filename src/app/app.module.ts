@@ -1,30 +1,55 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthModule } from './auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { HomeComponent } from './components/home/home.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from '../app/components/home/home.component';
+import { NotFoundComponent } from '../app/components/not-found/not-found.component';
+import { AuthGuardService } from './services/auth-guard.service';
+import { AuthService } from './services/auth.service';
+import { AppRoutingModule } from './app-routing.module';
+import { RegisterComponent } from './auth/register/register.component';
+
+
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  {
+    path: 'register', component: RegisterComponent
+  },
+
+  { path: '**', component: NotFoundComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    HomeComponent,
     FooterComponent,
-    NotFoundComponent
+    HomeComponent,
+    NotFoundComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AuthModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthGuardService, AuthService],
+  bootstrap: [AppComponent],
+  entryComponents: []
 })
-export class AppModule { }
+export class AppModule {}

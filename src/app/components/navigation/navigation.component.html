@@ -1,0 +1,16 @@
+<mat-toolbar class=nav>
+      <nav>
+            <section class="logo">
+                  <a routerLink="/" routerLinkActive="active"><img src="../../../assets/logo.png" alt=""></a>
+            </section>
+            <section class="menu" *ngIf="!authService.isAuthenticated()">
+                  <span><a routerLink="/register" routerLinkActive="active">Register</a></span>
+                  <span><a routerLink="/login" routerLinkActive="active">Login</a></span>  
+            </section>
+            <section class="menu" *ngIf="authService.isAuthenticated()">
+                  <span><a routerLink="/courses" routerLinkActive="active">Courses</a></span>
+                  <span><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></span>
+                  <span><a [routerLink]="" (click)="logoutClick()">Logout</a></span>
+            </section>
+      </nav>
+</mat-toolbar>
