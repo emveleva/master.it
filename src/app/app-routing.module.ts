@@ -5,22 +5,20 @@ import { LogoutComponent } from './auth/logout/logout.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { CoursesComponent } from './courses/courses/courses.component';
 
 const routes: Routes = [
   {
     path: '', component: HomeComponent 
   },
   {
-    path: 'register', component: RegisterComponent
+    path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'login', component: LoginComponent
-  },
-  {
-    path: 'logout', component: LogoutComponent
+    path: 'courses', loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule)
   },
   { path: '**', component: NotFoundComponent },
-
+ 
 ];
 
 @NgModule({

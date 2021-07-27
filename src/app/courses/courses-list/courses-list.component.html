@@ -1,0 +1,18 @@
+<mat-progress-bar *ngIf="!courses" mode="indeterminate"></mat-progress-bar>
+<section class="wrapper">
+      <button (click)="addNew()" mat-raised-button class="button-turq">Add New Course</button>
+      <ul>
+                  
+                         
+            <li *ngFor="let course of courses">
+                  <h2>{{ course.name }}</h2>
+                  <img [src]="course.imgUrl ? course.imgUrl : '/assets/course-img.png'" alt="">
+            <div>
+                  <button mat-raised-button class="button-blue" (click)="openDetails(course)">Details</button>
+                  
+            </div>
+      
+            </li>
+            
+                        </ul>
+                  </section>

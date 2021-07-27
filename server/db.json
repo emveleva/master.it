@@ -7,5 +7,17 @@
       "id": 1
     }
   ],
-  "courses": []
+  "courses": [
+    {
+      "id": 1,
+      "name": "Angular",
+      "imgUrl": null,
+      "description": "Best course ever!",
+      "lecturer": "Joe Doe",
+      "startDate": "05.01.2022",
+      "endDate": "15.02.2022",
+      "difficultyLevel": "5",
+      "category": "Programming"
+    }
+  ]
 }

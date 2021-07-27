@@ -2,9 +2,10 @@
 
 
 main {
-      justify-content: center;
-      gap: 15px;
+      flex-direction: row;
       align-items: center;
+      justify-content: center;
+      gap: 20px;
 }
 .img {
       width: 40%;

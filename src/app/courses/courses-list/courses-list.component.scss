@@ -1,0 +1,67 @@
+mat-progress-bar {
+      position: absolute;
+      top: 63px;
+      left: 0;
+}
+.wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+}
+ul {
+      background-color: rgb(209, 240, 250);
+      padding: 0;
+      width: 95%;
+      border-radius: 15px;
+      list-style-type: none;
+      min-height: 250px;
+      height: max-content;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      align-items: center;
+}
+li {
+      background-color: azure;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      color: white;
+      align-items: center;
+      gap: 10px;
+      width: 15%;
+      justify-content: space-around;
+      border-radius: 15px;
+}
+img {
+      width: 90%;
+      opacity: 0.8;
+}
+h2 {
+      margin: 0;
+      color: #6038af;
+}
+div {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+}
+
+.button-blue {
+      background-color: #6038af;
+      width: 80px;
+}
+
+.button-turq {
+      background-color: #00c2cb;
+      color: white;
+      width: 20%;
+      align-self: center;
+    }
+button {
+      color: white;
+    
+
+}

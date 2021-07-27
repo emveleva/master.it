@@ -1,0 +1,29 @@
+<main>
+
+      <h1>{{course.name}}</h1>
+      <section class="wrapper">
+      <ul>
+    <section class="img">
+      <li> <img [src]="course.imgUrl ? course.imgUrl : '/assets/course-img.png'" alt=""></li>
+    </section>
+    <section>
+            <li><span>Lecturer's Name:</span>{{course.lecturer}}</li>
+            <li><span>Category:</span>{{course.category}}</li>
+            <li><span>Difficulty:</span>{{course.difficultyLevel}}</li>
+        
+    </section>
+            <section>
+            <li><span>Description:</span>{{course.description}}</li>
+            <li><span>Start Date:</span>{{course.startDate}}</li>
+            <li><span>End Date:</span>{{course.endDate}}</li>
+      </section>
+    
+</ul>
+    <section class="buttons">
+      <button mat-raised-button class="button-blue" >Sign Up</button>
+      <button mat-raised-button class="button-blue" >Edit</button>
+      <button mat-raised-button class="button-blue" >Delete</button>
+    </section>
+
+</section>
+</main>

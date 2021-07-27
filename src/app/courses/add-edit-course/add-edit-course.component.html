@@ -1,0 +1,48 @@
+<main>
+      <h1>{{form.controls['id'].value?"Edit Course":"Add New Course"}}</h1>
+      <section class="error" *ngIf="error">
+        <p>
+          {{error}}
+        </p>
+      </section>
+      <form [formGroup]="form" class="normal-form" (submit)="onSubmit()">
+        <input type="hidden" formControlName="id">
+        <mat-form-field>
+          <mat-label>Course Name</mat-label>
+          <input formControlName="name" matInput required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Image Url</mat-label>
+          <input formControlName="imgUrl" matInput >
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input formControlName="description" matInput >
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Lecturer's Name</mat-label>
+            <input formControlName="lecturer" matInput >
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Difficulty Level</mat-label>
+            <input formControlName="difficultyLevel" matInput >
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Start Date</mat-label>
+            <input formControlName="startDate" matInput >
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>End Date</mat-label>
+            <input formControlName="endDate" matInput >
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Category</mat-label>
+            <input formControlName="category" matInput >
+          </mat-form-field>
+        <div class="buttons">
+          <button mat-raised-button class="button-mint" type="submit">Confirm</button>
+          <button (click)="onClose()" mat-raised-button class="button-red" type="button">Cancel</button>
+        </div>
+      </form>
+  </main>

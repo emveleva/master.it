@@ -16,6 +16,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './auth/register/register.component';
+import { CoursesModule } from './courses/courses.module';
+import { AddEditCourseComponent } from './courses/add-edit-course/add-edit-course.component';
 
 
 
@@ -41,15 +43,15 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AuthModule,
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule
+    
   ],
   providers: [AuthGuardService, AuthService],
   bootstrap: [AppComponent],
-  entryComponents: []
+  entryComponents: [AddEditCourseComponent]
 })
 export class AppModule {}
