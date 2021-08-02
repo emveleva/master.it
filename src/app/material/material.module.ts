@@ -7,7 +7,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatCardModule} from '@angular/material/card'
 const MaterialComponents = [
   MatFormFieldModule,
   MatToolbarModule,
@@ -16,7 +18,10 @@ const MaterialComponents = [
   MatIconModule,
   MatSnackBarModule,
   MatProgressBarModule,
-  MatDialogModule
+  MatDialogModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatCardModule
 
 ];
 

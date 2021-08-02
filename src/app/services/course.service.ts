@@ -26,7 +26,7 @@ export class CourseService {
       return this.http.put(`${this.baseUrl}/${course.id}`, course, this.httpOptions);
     }
   
-    deleteLoc(id: string) {
+    deleteCourse(id: string) {
       return this.http.delete(`${this.baseUrl}/${id}`);
     }
 

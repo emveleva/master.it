@@ -20,6 +20,7 @@ export class AddEditCourseComponent implements OnInit {
   locId!: string;
   error!: string;
   notification!: string;
+  range!: FormGroup;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -44,11 +45,12 @@ export class AddEditCourseComponent implements OnInit {
       ),
       description: new FormControl(this.course.description),
       lecturer: new FormControl(this.course.lecturer),
-      startDate: new FormControl(this.course.startDate),
-      endDate: new FormControl(this.course.endDate),
+        startDate: new FormControl(this.course.startDate),
+        endDate: new FormControl(this.course.endDate),
       difficultyLevel: new FormControl(this.course.difficultyLevel),
       category: new FormControl(this.course.category)
     });
+
   }
 
   ngOnInit() {

@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './auth/register/register.component';
 import { CoursesModule } from './courses/courses.module';
 import { AddEditCourseComponent } from './courses/add-edit-course/add-edit-course.component';
+import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
 
 
 
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     FooterComponent,
     HomeComponent,
     NotFoundComponent,
+    ConfirmDialogComponent,
 
   ],
   imports: [

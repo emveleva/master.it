@@ -18,6 +18,17 @@
       "endDate": "15.02.2022",
       "difficultyLevel": "5",
       "category": "Programming"
+    },
+    {
+      "id": 2,
+      "name": "React",
+      "imgUrl": null,
+      "description": "Easy to understand, beginner-friendly course!",
+      "lecturer": "Peter James",
+      "startDate": "2021-08-10T21:00:00.000Z",
+      "endDate": "2021-08-18T21:00:00.000Z",
+      "difficultyLevel": "5",
+      "category": "Programming"
     }
   ]
 }

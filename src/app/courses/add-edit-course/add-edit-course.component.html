@@ -7,6 +7,8 @@
       </section>
       <form [formGroup]="form" class="normal-form" (submit)="onSubmit()">
         <input type="hidden" formControlName="id">
+        <section class="fields">
+        <div class="left">
         <mat-form-field>
           <mat-label>Course Name</mat-label>
           <input formControlName="name" matInput required>
@@ -19,6 +21,8 @@
             <mat-label>Description</mat-label>
             <input formControlName="description" matInput >
           </mat-form-field>
+        </div>
+        <div class="right">
           <mat-form-field>
             <mat-label>Lecturer's Name</mat-label>
             <input formControlName="lecturer" matInput >
@@ -28,18 +32,23 @@
             <input formControlName="difficultyLevel" matInput >
           </mat-form-field>
 
-          <mat-form-field>
-            <mat-label>Start Date</mat-label>
-            <input formControlName="startDate" matInput >
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>End Date</mat-label>
-            <input formControlName="endDate" matInput >
-          </mat-form-field>
+
           <mat-form-field>
             <mat-label>Category</mat-label>
             <input formControlName="category" matInput >
           </mat-form-field>
+        </div>
+      </section>
+          <mat-form-field appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate formControlName="startDate" placeholder="Start date">
+              <input matEndDate formControlName="endDate" placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+          
         <div class="buttons">
           <button mat-raised-button class="button-mint" type="submit">Confirm</button>
           <button (click)="onClose()" mat-raised-button class="button-red" type="button">Cancel</button>

@@ -14,15 +14,15 @@
     </section>
             <section>
             <li><span>Description:</span>{{course.description}}</li>
-            <li><span>Start Date:</span>{{course.startDate}}</li>
-            <li><span>End Date:</span>{{course.endDate}}</li>
+            <li><span>Start Date:</span>{{course.startDate | date}}</li>
+            <li><span>End Date:</span>{{course.endDate | date}}</li>
       </section>
     
 </ul>
     <section class="buttons">
       <button mat-raised-button class="button-blue" >Sign Up</button>
-      <button mat-raised-button class="button-blue" >Edit</button>
-      <button mat-raised-button class="button-blue" >Delete</button>
+      <button mat-raised-button class="button-blue" (click)="onEdit(course)">Edit</button>
+      <button mat-raised-button class="button-blue" (click)="onDelete((course.id).toString())">Delete</button>
     </section>
 
 </section>

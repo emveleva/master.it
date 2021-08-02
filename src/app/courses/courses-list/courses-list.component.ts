@@ -36,7 +36,7 @@ export class CoursesListComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '60%';
+    dialogConfig.width = '40%';
     dialogConfig.data = { courseInfo: new Course() };
     const ref = this.dialogRef.open(AddEditCourseComponent, dialogConfig);
     ref.afterClosed().subscribe({
