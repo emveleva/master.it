@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from 'src/app/models/course.model';
 import { CourseService } from 'src/app/services/course.service';
 import { AddEditCourseComponent } from '../add-edit-course/add-edit-course.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/services/notifications.service';
 import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-dialog.component';
+import { AuthService } from 'src/app/services/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { DashboardService } from 'src/app/services/dashboard.service';
 
 @Component({
   selector: 'app-course-details',
@@ -18,7 +21,8 @@ course!: Course
 allowDelete: boolean = true;
   constructor(private activatedRoute: ActivatedRoute, private courseService: CourseService,
     private dialogRef: MatDialog,
-    private notificationsService: NotificationService) {
+    private notificationsService: NotificationService,
+    private dashboardService: DashboardService, private authService: AuthService, private router: Router) {
     
    }
 
@@ -37,6 +41,59 @@ allowDelete: boolean = true;
       }
     })
   }
+  
+  signUp(courseName: string, id: string){
+    const userId = this.authService.getUserData();
+    const dialogRef = this.dialogRef.open(ConfirmDialogComponent, {
+      width: '30%',
+      data: {
+        title: 'Are you sure you want to sign up for this course?',
+      },
+    });
+    dialogRef.afterClosed().subscribe((dialogResult) => {
+      if (dialogResult) {
+        this.dashboardService.getCourses(userId).subscribe({
+          next: (res: any) => {
+            const courses = res.courses;
+            if (courses.includes(courseName)){
+              this.notificationsService.error('You are already signed up!')
+            } else {
+              courses.push(this.course)
+              this.dashboardService.updateCourses(userId, courses).subscribe({
+                next: () => {
+                  this.notificationsService.success('Signed up!');
+                },
+                error: (res: HttpErrorResponse) => {
+                  this.notificationsService.error(res.error);
+                },
+              });
+              this.courseService.getSignedUsers(id)
+              .subscribe({
+                next: (res: any) => {
+                  console.log(res)
+                  const signedUsers = res.signedUsers;
+                  signedUsers.push(userId)
+                  this.courseService.updateSignedUsers(id, signedUsers).subscribe({
+                    next: () => {
+                      this.notificationsService.success('Signed up!');
+                    },
+                    error: (res: HttpErrorResponse) => {
+                      this.notificationsService.error(res.error);
+                    },
+                  });
+            }
+          }
+        );
+            }
+          },
+        });
+      
+
+    }
+  })
+}
+
+  
   
   onEdit(courseInfo: any) {
     const dialogConfig = new MatDialogConfig();
@@ -57,31 +114,24 @@ allowDelete: boolean = true;
     const dialogRef = this.dialogRef.open(ConfirmDialogComponent, {
       width: '30%',
       data: {
-        title: 'Are you sure you want to delete this developer?',
+        title: 'Are you sure you want to delete this course?',
       },
     });
     dialogRef.afterClosed().subscribe((dialogResult) => {
       if (dialogResult) {
         this.courseService.getOneCourse(id).subscribe({
           next: (res: any) => {
-            if (res.hiredDates.length > 0) {
-              for (let i = 0; i < res.hiredDates.length; i++) {
-                if (
-                  JSON.stringify(res.hiredDates[i].end) >
-                  JSON.stringify(new Date())
-                ) {
+            if (res.signedUsers.length > 0) {
                   this.allowDelete = false;
                   this.notificationsService.error(
-                    'The developer is currently hired and cannot be deleted.'
+                    'The course cannot be deleted.'
                   );
-                  break;
-                }
-              }
-            }
+                }            
             if (this.allowDelete) {
               this.courseService.deleteCourse(id).subscribe({
                 next: () => {
-                  this.notificationsService.success('Developer deleted.');
+                  this.notificationsService.success('Course deleted.');
+                  this.router.navigate(['courses'])
                 },
               });
             }

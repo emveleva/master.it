@@ -17,6 +17,9 @@ const routes: Routes = [
   {
     path: 'courses', loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule)
   },
+  {
+    path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+  },
   { path: '**', component: NotFoundComponent },
  
 ];

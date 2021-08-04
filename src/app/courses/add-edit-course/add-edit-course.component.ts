@@ -17,10 +17,21 @@ export class AddEditCourseComponent implements OnInit {
   course!: Course;
   courseName!: string;
   form!: FormGroup;
-  locId!: string;
+  courseId!: string;
   error!: string;
   notification!: string;
   range!: FormGroup;
+  categories = [
+    'Programming',
+    'Business',
+    'Music',
+    'Literature',
+    'Design',
+    'Marketing',
+    'Photography',
+  ];
+  difficulties = ['Beginner', 'Intermediate', 'Advanced'];
+  languages = ['English', 'Bulgarian', 'Russian', 'French', 'German'];
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -35,7 +46,7 @@ export class AddEditCourseComponent implements OnInit {
       id: new FormControl(this.course.id),
       name: new FormControl(this.course.name, [
         Validators.required,
-        Validators.pattern(/^[a-zA-Z\s]+$/),
+        Validators.pattern(/^[a-zA-Z0-9\S\s]+$/),
       ]),
       imgUrl: new FormControl(
         this.course.imgUrl,
@@ -43,29 +54,49 @@ export class AddEditCourseComponent implements OnInit {
           /https?:\/\/(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&\/\/=]*)/gm
         )
       ),
-      description: new FormControl(this.course.description),
-      lecturer: new FormControl(this.course.lecturer),
-        startDate: new FormControl(this.course.startDate),
-        endDate: new FormControl(this.course.endDate),
-      difficultyLevel: new FormControl(this.course.difficultyLevel),
-      category: new FormControl(this.course.category)
+      description: new FormControl(this.course.description, [
+        Validators.maxLength(240),
+        Validators.required,
+      ]),
+      lecturer: new FormControl(this.course.lecturer, [
+        Validators.required,
+        Validators.pattern(/^[a-zA-Z\s]+$/),
+      ]),
+      startDate: new FormControl(this.course.startDate, Validators.required),
+      endDate: new FormControl(this.course.endDate, Validators.required),
+      difficultyLevel: new FormControl(
+        this.course.difficultyLevel,
+        Validators.required
+      ),
+      category: new FormControl(this.course.category, Validators.required),
+      language: new FormControl(this.course.language, Validators.required),
+      signedUsers: new FormControl(this.course.signedUsers ? this.course.signedUsers : [])
     });
-
   }
 
   ngOnInit() {
     this.buildForm();
   }
-
+  
+  onChange() {
+    this.allowCreateEdit = true;
+    this.error = '';
+    if (this.form.value.startDate < new Date()) {
+      this.allowCreateEdit = false;
+      this.error = 'You cannot choose past dates.';
+    } else if (this.form.value.startDate == '' || this.form.value.endDate == '') {
+      this.error = 'You must choose dates.';
+      this.allowCreateEdit = false;
+    }
+  }
   onSubmit() {
     this.error = '';
-    this.allowCreateEdit = true;
     this.notification = '';
     this.courseService.getCourses$().subscribe({
       next: (res) => {
         this.courses = res;
         this.courseName = this.form.get('name')?.value;
-        this.locId = this.form.get('id')?.value;
+        this.courseId = this.form.get('id')?.value;
         if (this.form.valid) {
           if (!this.form.get('id')?.value) {
             for (let i = 0; i < this.courses.length; i++) {
@@ -111,6 +142,7 @@ export class AddEditCourseComponent implements OnInit {
         }
       },
     });
+  
   }
 
   onClose() {

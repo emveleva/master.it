@@ -9,7 +9,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatCardModule} from '@angular/material/card'
+import { MatCardModule} from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule} from '@angular/material/table'
+
 const MaterialComponents = [
   MatFormFieldModule,
   MatToolbarModule,
@@ -21,7 +26,11 @@ const MaterialComponents = [
   MatDialogModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatCardModule
+  MatCardModule,
+  MatSelectModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatTableModule
 
 ];
 

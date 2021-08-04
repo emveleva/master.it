@@ -27,3 +27,13 @@ button {
       width: 44%;
       margin: 5px;
 }
+.bot {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+}
+textarea {
+      max-height: 71px;
+      resize: none;
+    }

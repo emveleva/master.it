@@ -8,4 +8,6 @@ export class Course {
       startDate!: string;
       endDate!: string;
       category!: string;
+      language!: string;
+      signedUsers!: [];
 }

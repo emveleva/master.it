@@ -3,22 +3,25 @@
     {
       "email": "martito@gmail.com",
       "password": "$2a$10$HFAUWjJdbYn4m.wibiuWqubzGkthVfVi/Y8h2MsylZwHeEOuWEo8u",
-      "hiredDevs": [],
+      "courses": [
+        {
+          "id": 5,
+          "name": "SEO",
+          "imgUrl": null,
+          "description": "Very important for online marketing!",
+          "lecturer": "Patty Johnson",
+          "startDate": "2021-08-19T21:00:00.000Z",
+          "endDate": "2021-08-26T21:00:00.000Z",
+          "difficultyLevel": "Intermediate",
+          "category": "Marketing",
+          "language": "German",
+          "signedUsers": []
+        }
+      ],
       "id": 1
     }
   ],
   "courses": [
-    {
-      "id": 1,
-      "name": "Angular",
-      "imgUrl": null,
-      "description": "Best course ever!",
-      "lecturer": "Joe Doe",
-      "startDate": "05.01.2022",
-      "endDate": "15.02.2022",
-      "difficultyLevel": "5",
-      "category": "Programming"
-    },
     {
       "id": 2,
       "name": "React",
@@ -28,7 +31,66 @@
       "startDate": "2021-08-10T21:00:00.000Z",
       "endDate": "2021-08-18T21:00:00.000Z",
       "difficultyLevel": "5",
-      "category": "Programming"
+      "category": "Programming",
+      "signedUsers": []
+    },
+    {
+      "id": 3,
+      "name": "Angular",
+      "imgUrl": null,
+      "description": "Upgrade your angular skills in just 3 weeks.",
+      "lecturer": "Smith Evans",
+      "startDate": "2021-08-07T21:00:00.000Z",
+      "endDate": "2021-08-28T21:00:00.000Z",
+      "difficultyLevel": "Intermediate",
+      "category": "Programming",
+      "language": "French",
+      "signedUsers": [
+        "1"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Enlightenment",
+      "imgUrl": null,
+      "description": "English literature is nothing without the Enlightenment period.",
+      "lecturer": "Dorothy Smith",
+      "startDate": "2021-08-23T21:00:00.000Z",
+      "endDate": "2021-08-30T21:00:00.000Z",
+      "difficultyLevel": "Intermediate",
+      "category": "Literature",
+      "language": "English",
+      "signedUsers": []
+    },
+    {
+      "id": 5,
+      "name": "SEO",
+      "imgUrl": null,
+      "description": "Very important for online marketing!",
+      "lecturer": "Patty Johnson",
+      "startDate": "2021-08-19T21:00:00.000Z",
+      "endDate": "2021-08-26T21:00:00.000Z",
+      "difficultyLevel": "Intermediate",
+      "category": "Marketing",
+      "language": "German",
+      "signedUsers": [
+        "1"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "DSLR",
+      "imgUrl": null,
+      "description": "Tips and tricks to polish your photography skills!",
+      "lecturer": "Dave Keller",
+      "startDate": "2021-08-19T21:00:00.000Z",
+      "endDate": "2021-08-20T21:00:00.000Z",
+      "difficultyLevel": "Advanced",
+      "category": "Photography",
+      "language": "English",
+      "signedUsers": [
+        "1"
+      ]
     }
   ]
 }

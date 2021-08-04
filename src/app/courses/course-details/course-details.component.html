@@ -1,28 +1,31 @@
+<mat-progress-bar *ngIf="!course" mode="indeterminate"></mat-progress-bar>
 <main>
 
-      <h1>{{course.name}}</h1>
+      <h1 *ngIf="course">{{course.name}}</h1>
       <section class="wrapper">
-      <ul>
+      <ul *ngIf="course">
     <section class="img">
       <li> <img [src]="course.imgUrl ? course.imgUrl : '/assets/course-img.png'" alt=""></li>
     </section>
-    <section>
+    <section class="fields">
             <li><span>Lecturer's Name:</span>{{course.lecturer}}</li>
             <li><span>Category:</span>{{course.category}}</li>
             <li><span>Difficulty:</span>{{course.difficultyLevel}}</li>
-        
-    </section>
-            <section>
-            <li><span>Description:</span>{{course.description}}</li>
+            <li><span>Language:</span>{{course.language}}</li>
             <li><span>Start Date:</span>{{course.startDate | date}}</li>
             <li><span>End Date:</span>{{course.endDate | date}}</li>
+    </section>
+            <section class="fields">
+            <li><span>Description:</span></li>
+            <li>{{course.description}}</li>
+
       </section>
     
 </ul>
     <section class="buttons">
-      <button mat-raised-button class="button-blue" >Sign Up</button>
+      <button mat-raised-button class="button-purple" (click)="signUp(course.name, (course.id).toString())">Sign Up</button>
       <button mat-raised-button class="button-blue" (click)="onEdit(course)">Edit</button>
-      <button mat-raised-button class="button-blue" (click)="onDelete((course.id).toString())">Delete</button>
+      <button mat-raised-button class="button-red" (click)="onDelete((course.id).toString())">Delete</button>
     </section>
 
 </section>

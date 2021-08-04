@@ -18,36 +18,57 @@
           <input formControlName="imgUrl" matInput >
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Description</mat-label>
-            <input formControlName="description" matInput >
-          </mat-form-field>
+          <mat-label>Language</mat-label>
+          <mat-select formControlName="language" required>
+            <mat-option *ngFor="let language of languages" [value]="language">
+              {{language}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
         </div>
         <div class="right">
           <mat-form-field>
             <mat-label>Lecturer's Name</mat-label>
-            <input formControlName="lecturer" matInput >
+            <input formControlName="lecturer" matInput required>
           </mat-form-field>
+
           <mat-form-field>
             <mat-label>Difficulty Level</mat-label>
-            <input formControlName="difficultyLevel" matInput >
+            <mat-select formControlName="difficultyLevel" required>
+              <mat-option *ngFor="let difficulty of difficulties" [value]="difficulty">
+                {{difficulty}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
 
 
           <mat-form-field>
             <mat-label>Category</mat-label>
-            <input formControlName="category" matInput >
+            <mat-select formControlName="category" required>
+              <mat-option *ngFor="let category of categories" [value]="category">
+                {{category}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
       </section>
-          <mat-form-field appearance="fill">
-            <mat-label>Enter a date range</mat-label>
-            <mat-date-range-input [rangePicker]="picker">
-              <input matStartDate formControlName="startDate" placeholder="Start date">
-              <input matEndDate formControlName="endDate" placeholder="End date">
-            </mat-date-range-input>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
-          </mat-form-field>
+      <section class="bot">
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <textarea rows="5"  matInput formControlName="description"
+            placeholder="What is this course about?" #description></textarea>
+          <mat-hint align="end" >{{description.value.length || 0}}/240</mat-hint>
+        </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Enter a date range</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate formControlName="startDate" (dateChange)="onChange()" placeholder="Start date">
+                <input matEndDate formControlName="endDate" (dateChange)="onChange()" placeholder="End date">
+              </mat-date-range-input>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+      </section>
           
         <div class="buttons">
           <button mat-raised-button class="button-mint" type="submit">Confirm</button>
