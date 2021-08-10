@@ -23,6 +23,6 @@ export class NavigationComponent implements OnInit {
 
   logoutClick() {
     this.authService.logout();
-    this.router.navigate((['/logout']))
+    this.router.navigate((['auth/logout']))
   }
 }

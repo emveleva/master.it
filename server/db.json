@@ -19,6 +19,18 @@
         }
       ],
       "id": 1
+    },
+    {
+      "email": "petya22@gmail.com",
+      "password": "$2a$10$smR8ZiJstk4JQqmlO0Q1cOQUw0ll5pd.afpjoMnQ/hvZm0ePH675i",
+      "hiredDevs": [],
+      "id": 2
+    },
+    {
+      "email": "joedoe@gmail.com",
+      "password": "$2a$10$oeHscEx67J656dQ8xf6IDOcrkwJ9RnjlWq1ooUFc.vpbuOjXmGW.C",
+      "hiredDevs": [],
+      "id": 3
     }
   ],
   "courses": [

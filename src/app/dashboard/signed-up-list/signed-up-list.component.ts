@@ -13,14 +13,14 @@ import { DashboardService } from 'src/app/services/dashboard.service';
 })
 export class SignedUpListComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['name', 'start', 'end', 'lecturer', 'category', 'language', 'difficulty'];
-  courses!: any;
-  course!: Course;
+  courses: any = [];
+  course!: Course[];
   userId!: string;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  dataSource = new MatTableDataSource<DeveloperInfo>();
+  dataSource = new MatTableDataSource<CourseInfo>();
   constructor(
     private dashboardService: DashboardService,
     private authService: AuthService
@@ -28,25 +28,35 @@ export class SignedUpListComponent implements OnInit, AfterViewInit {
     this.dataSource = new MatTableDataSource(this.courses);
   }
 
-  loadDevs() {
+  loadCourses(): void {
     this.userId = this.authService.getUserData();
     this.dashboardService.getCourses$(this.userId).subscribe({
-      next: (res: any) => {
+      next: (res) => {
+        console.log(res)
+        console.log(this.courses)
+        console.log(typeof Course)
         this.courses = res.courses;
-        this.dataSource.data = this.courses;
+        console.log(typeof this.courses)
+        if (this.courses){
+          this.dataSource.data = this.courses;
+        }
+        
       },
     });
   }
-  ngOnInit() {
-    this.loadDevs();
+  ngOnInit(): void {
+    this.loadCourses();
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  ngAfterViewInit(): void {
+    if (this.courses){
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    }
+    
   }
 }
-export interface DeveloperInfo {
+export interface CourseInfo {
   name: string;
   start: string;
   end: string;

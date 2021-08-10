@@ -1,8 +1,6 @@
-<mat-progress-bar *ngIf="!courses" mode="indeterminate"></mat-progress-bar>
-
 <section class="wrapper">
   <article class="table-container">
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+<table *ngIf="courses" mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
   <ng-container matColumnDef="name">
     <th mat-header-cell mat-sort-header *matHeaderCellDef>Name</th>
@@ -36,7 +34,7 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-<mat-paginator #paginator [length]="dataSource.data.length" [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>
+<mat-paginator *ngIf="courses" #paginator [length]="dataSource.data.length" [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>
 </article>
 
 

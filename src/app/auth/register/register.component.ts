@@ -25,8 +25,8 @@ export class RegisterComponent implements OnInit {
       this.notificationsService.error("Your password should contain at least 6 characters.")
     }else {
     const { email, password } = user;
-    const hiredDevs: [] = [];
-    this.authService.register(email, password, hiredDevs ).subscribe({
+    const courses: [] = [];
+    this.authService.register(email, password, courses ).subscribe({
       next: (res: any) => {
         this.auth = res['accessToken'];
         localStorage.setItem('token', this.auth);
