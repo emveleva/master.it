@@ -3,6 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Observable } from 'rxjs';
+import { AuthResponse } from '../models/auth-response.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -33,13 +36,12 @@ export class AuthService {
       return false;
     }
   }
-  register(email: string, password: string, hiredDevs: []) {
-    let user = { email, password, hiredDevs };
+  register(email: string, password: string, courses: []) {
+    let user = { email, password, courses };
     return this.http.post(`${this.authUrl}register`, user, this.httpOptions);
   }
-  login(email: string, password: string) {
-    let user = { email, password };
-    return this.http.post(`${this.authUrl}login`, user, this.httpOptions);
+  login(user: User): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${environment.apiUrl}login`, user);
   }
   logout() {
     localStorage.removeItem('token');

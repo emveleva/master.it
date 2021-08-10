@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
@@ -20,8 +20,9 @@ import { AuthRoutingModule } from './auth-routing.module';
   imports: [
     CommonModule,
     MaterialModule,
-    FormsModule,
     AuthRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     RouterModule

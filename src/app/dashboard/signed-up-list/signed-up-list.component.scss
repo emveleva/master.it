@@ -14,10 +14,12 @@ mat-progress-bar {
       gap: 20px;
       
 }
-
 h2 {
-      margin: 0;
+      margin: 0 auto;
+      color: #6038af;
+      justify-self: center;
 }
+
 div {
       display: flex;
       justify-content: space-evenly;
@@ -34,4 +36,5 @@ table {
     }
     .table-container {
           width: 100%;
+          justify-content: center;
     }

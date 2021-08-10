@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
     }else {
     const { email, password } = user;
     const courses: [] = [];
-    this.authService.register(email, password, courses ).subscribe({
+    this.authService.register(email, password, courses).subscribe({
       next: (res: any) => {
         this.auth = res['accessToken'];
         localStorage.setItem('token', this.auth);

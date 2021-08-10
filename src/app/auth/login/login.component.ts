@@ -1,51 +1,55 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
-import { User } from '../../models/user.model'
-import {
-  HttpErrorResponse,
-} from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NotificationService } from 'src/app/services/notifications.service';
+import { take } from 'rxjs/operators';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  providers: [AuthService]
 })
 export class LoginComponent implements OnInit {
-  public jwtHelper: JwtHelperService = new JwtHelperService();
   hide = true;
   auth!: string;
-  token!: string | null;
-  userId!: string;
-  
-  constructor(private authService: AuthService,
+  form!: FormGroup;
+  user!: User;
+  constructor(
+    private authService: AuthService,
     private router: Router,
-    private notificationsService: NotificationService
-    ) { }
+    private notificationService: NotificationService
+  ) {}
 
-  ngOnInit(): void {
+  private buildForm() {
+    this.form = new FormGroup({
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
+    });
   }
-  loginUser(user: User){
 
-    const { email, password } = user;
-    this.authService.login(email, password).subscribe({
-        next: (res: any) => {
-          this.auth = res['accessToken'];
-          localStorage.setItem('token', this.auth);
-          this.token = res['accessToken']
-          this.userId = res.sub;
-          this.router.navigate(['/'])
-        },
-        error: (res: HttpErrorResponse) => {
-          if (res.error == "Incorrect password" || "Cannot find user"){
-            this.notificationsService.error('Incorrect email or password.')
-          } else {
-            this.notificationsService.error(res.error)
-          }
-          
+  ngOnInit() {
+    this.buildForm();
+  }
+  onSubmit() {
+    this.authService.login(this.form.value).pipe(take(1)).subscribe({
+      next: (res) => {
+        this.auth = res['accessToken'];
+        localStorage.setItem('token', this.auth);
+        this.router.navigate(['courses']);
+      },
+      error: (res: HttpErrorResponse) => {
+        if (res.error == 'Incorrect password' || 'Cannot find user') {
+          this.notificationService.error('Incorrect username or password.');
+        } else {
+          this.notificationService.error(res.error);
         }
-      });
+      },
+    });
   }
 }

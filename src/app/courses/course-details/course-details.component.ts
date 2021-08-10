@@ -19,6 +19,7 @@ export class CourseDetailsComponent implements OnInit {
 id!: string | null;
 course!: Course
 allowDelete: boolean = true;
+allowSignUp: boolean = true;
   constructor(private activatedRoute: ActivatedRoute, private courseService: CourseService,
     private dialogRef: MatDialog,
     private notificationsService: NotificationService,
@@ -54,14 +55,22 @@ allowDelete: boolean = true;
       if (dialogResult) {
         this.dashboardService.getCourses(userId).subscribe({
           next: (res: any) => {
+            console.log(res)
             const courses = res.courses;
-            if (courses.includes(courseName)){
+            console.log(courses)
+            courses.forEach((currentCourse: { name: string; }) => {
+              if (currentCourse.name == courseName){
+                this.allowSignUp = false;
+              }
+            });
+            if (!this.allowSignUp){
               this.notificationsService.error('You are already signed up!')
             } else {
               courses.push(this.course)
               this.dashboardService.updateCourses(userId, courses).subscribe({
                 next: () => {
                   this.notificationsService.success('Signed up!');
+                  this.router.navigate(['courses'])
                 },
                 error: (res: HttpErrorResponse) => {
                   this.notificationsService.error(res.error);

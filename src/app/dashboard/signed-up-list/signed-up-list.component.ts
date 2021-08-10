@@ -13,7 +13,7 @@ import { DashboardService } from 'src/app/services/dashboard.service';
 })
 export class SignedUpListComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['name', 'start', 'end', 'lecturer', 'category', 'language', 'difficulty'];
-  courses: any = [];
+  courses!: any;
   course!: Course[];
   userId!: string;
   @ViewChild(MatPaginator)
@@ -28,31 +28,24 @@ export class SignedUpListComponent implements OnInit, AfterViewInit {
     this.dataSource = new MatTableDataSource(this.courses);
   }
 
-  loadCourses(): void {
+  loadCourses() {
     this.userId = this.authService.getUserData();
     this.dashboardService.getCourses$(this.userId).subscribe({
       next: (res) => {
-        console.log(res)
-        console.log(this.courses)
-        console.log(typeof Course)
         this.courses = res.courses;
-        console.log(typeof this.courses)
-        if (this.courses){
           this.dataSource.data = this.courses;
-        }
+      
         
       },
     });
   }
-  ngOnInit(): void {
+  ngOnInit(){
     this.loadCourses();
   }
 
-  ngAfterViewInit(): void {
-    if (this.courses){
+  ngAfterViewInit() {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    }
     
   }
 }
@@ -60,4 +53,9 @@ export interface CourseInfo {
   name: string;
   start: string;
   end: string;
+  lecturer: string,
+  category: string, 
+  language: string, 
+  difficulty: string
+
 }

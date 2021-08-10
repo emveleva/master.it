@@ -31,6 +31,180 @@
       "password": "$2a$10$oeHscEx67J656dQ8xf6IDOcrkwJ9RnjlWq1ooUFc.vpbuOjXmGW.C",
       "hiredDevs": [],
       "id": 3
+    },
+    {
+      "email": "floppsy@gmail.com",
+      "password": "$2a$10$oF/7W4J0q/..sd1pMhf65ONruUCO4Mv/wla659yncok4e9ah0zHEG",
+      "rePassword": "111111",
+      "id": 4
+    },
+    {
+      "email": "mopsyyy@gmail.com",
+      "password": "$2a$10$pgRmdqd/KNl4wkrLZZJDJ.Su6ko.hhqodh5BdFLEBcomfOMpwOYTu",
+      "rePassword": "111111",
+      "id": 5
+    },
+    {
+      "email": "timpsy@gmail.com",
+      "password": "$2a$10$JOuXgDbeLvy/7P5GXZNrc.E8EVSVt9WBwOB.QL4ISD0caFwmL/L0K",
+      "courses": [
+        {
+          "id": 4,
+          "name": "Enlightenment",
+          "imgUrl": null,
+          "description": "English literature is nothing without the Enlightenment period.",
+          "lecturer": "Dorothy Smith",
+          "startDate": "2021-08-23T21:00:00.000Z",
+          "endDate": "2021-08-30T21:00:00.000Z",
+          "difficultyLevel": "Intermediate",
+          "category": "Literature",
+          "language": "English",
+          "signedUsers": []
+        },
+        {
+          "id": 4,
+          "name": "Enlightenment",
+          "imgUrl": null,
+          "description": "English literature is nothing without the Enlightenment period.",
+          "lecturer": "Dorothy Smith",
+          "startDate": "2021-08-23T21:00:00.000Z",
+          "endDate": "2021-08-30T21:00:00.000Z",
+          "difficultyLevel": "Intermediate",
+          "category": "Literature",
+          "language": "English",
+          "signedUsers": []
+        },
+        {
+          "id": 4,
+          "name": "Enlightenment",
+          "imgUrl": null,
+          "description": "English literature is nothing without the Enlightenment period.",
+          "lecturer": "Dorothy Smith",
+          "startDate": "2021-08-23T21:00:00.000Z",
+          "endDate": "2021-08-30T21:00:00.000Z",
+          "difficultyLevel": "Intermediate",
+          "category": "Literature",
+          "language": "English",
+          "signedUsers": []
+        },
+        {
+          "id": 5,
+          "name": "SEO",
+          "imgUrl": null,
+          "description": "Very important for online marketing!",
+          "lecturer": "Patty Johnson",
+          "startDate": "2021-08-19T21:00:00.000Z",
+          "endDate": "2021-08-26T21:00:00.000Z",
+          "difficultyLevel": "Intermediate",
+          "category": "Marketing",
+          "language": "German",
+          "signedUsers": [
+            "1"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Enlightenment",
+          "imgUrl": null,
+          "description": "English literature is nothing without the Enlightenment period.",
+          "lecturer": "Dorothy Smith",
+          "startDate": "2021-08-23T21:00:00.000Z",
+          "endDate": "2021-08-30T21:00:00.000Z",
+          "difficultyLevel": "Intermediate",
+          "category": "Literature",
+          "language": "English",
+          "signedUsers": [
+            "6",
+            "6",
+            "6"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Enlightenment",
+          "imgUrl": null,
+          "description": "English literature is nothing without the Enlightenment period.",
+          "lecturer": "Dorothy Smith",
+          "startDate": "2021-08-23T21:00:00.000Z",
+          "endDate": "2021-08-30T21:00:00.000Z",
+          "difficultyLevel": "Intermediate",
+          "category": "Literature",
+          "language": "English",
+          "signedUsers": [
+            "6",
+            "6",
+            "6",
+            "6"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Enlightenment",
+          "imgUrl": null,
+          "description": "English literature is nothing without the Enlightenment period.",
+          "lecturer": "Dorothy Smith",
+          "startDate": "2021-08-23T21:00:00.000Z",
+          "endDate": "2021-08-30T21:00:00.000Z",
+          "difficultyLevel": "Intermediate",
+          "category": "Literature",
+          "language": "English",
+          "signedUsers": [
+            "6",
+            "6",
+            "6",
+            "6",
+            "6"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Enlightenment",
+          "imgUrl": null,
+          "description": "English literature is nothing without the Enlightenment period.",
+          "lecturer": "Dorothy Smith",
+          "startDate": "2021-08-23T21:00:00.000Z",
+          "endDate": "2021-08-30T21:00:00.000Z",
+          "difficultyLevel": "Intermediate",
+          "category": "Literature",
+          "language": "English",
+          "signedUsers": [
+            "6",
+            "6",
+            "6",
+            "6",
+            "6",
+            "6"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Enlightenment",
+          "imgUrl": null,
+          "description": "English literature is nothing without the Enlightenment period.",
+          "lecturer": "Dorothy Smith",
+          "startDate": "2021-08-23T21:00:00.000Z",
+          "endDate": "2021-08-30T21:00:00.000Z",
+          "difficultyLevel": "Intermediate",
+          "category": "Literature",
+          "language": "English",
+          "signedUsers": [
+            "6",
+            "6",
+            "6",
+            "6",
+            "6",
+            "6",
+            "6"
+          ]
+        }
+      ],
+      "id": 6
+    },
+    {
+      "email": "viksy@gmail.com",
+      "password": "$2a$10$yzLrn4V3Cc/FCaK9njGqdeaHjS3X5KDtg3e158XQHymmVD5kSVO7m",
+      "courses": [],
+      "id": 7
     }
   ],
   "courses": [
@@ -72,7 +246,16 @@
       "difficultyLevel": "Intermediate",
       "category": "Literature",
       "language": "English",
-      "signedUsers": []
+      "signedUsers": [
+        "6",
+        "6",
+        "6",
+        "6",
+        "6",
+        "6",
+        "6",
+        "6"
+      ]
     },
     {
       "id": 5,
@@ -86,7 +269,8 @@
       "category": "Marketing",
       "language": "German",
       "signedUsers": [
-        "1"
+        "1",
+        "6"
       ]
     },
     {
@@ -103,6 +287,19 @@
       "signedUsers": [
         "1"
       ]
+    },
+    {
+      "id": 7,
+      "name": "Email Marketing",
+      "imgUrl": null,
+      "description": "Cool course",
+      "lecturer": "Julia Smith",
+      "startDate": "2021-08-18T21:00:00.000Z",
+      "endDate": "2021-08-25T21:00:00.000Z",
+      "difficultyLevel": "Advanced",
+      "category": "Marketing",
+      "language": "Russian",
+      "signedUsers": []
     }
   ]
 }
