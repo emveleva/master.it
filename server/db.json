@@ -205,6 +205,35 @@
       "password": "$2a$10$yzLrn4V3Cc/FCaK9njGqdeaHjS3X5KDtg3e158XQHymmVD5kSVO7m",
       "courses": [],
       "id": 7
+    },
+    {
+      "email": "elsyto@gmail.com",
+      "password": "$2a$10$7H5sABviMGexk2C7On3TVOxgMIriv/ixUa7vikt31heT2GydmXkS.",
+      "courses": [
+        {
+          "id": 4,
+          "name": "Enlightenment",
+          "imgUrl": null,
+          "description": "English literature is nothing without the Enlightenment period.",
+          "lecturer": "Dorothy Smith",
+          "startDate": "2021-08-23T21:00:00.000Z",
+          "endDate": "2021-08-30T21:00:00.000Z",
+          "difficultyLevel": "Intermediate",
+          "category": "Literature",
+          "language": "English",
+          "signedUsers": [
+            "6",
+            "6",
+            "6",
+            "6",
+            "6",
+            "6",
+            "6",
+            "6"
+          ]
+        }
+      ],
+      "id": 8
     }
   ],
   "courses": [
@@ -254,7 +283,8 @@
         "6",
         "6",
         "6",
-        "6"
+        "6",
+        "8"
       ]
     },
     {

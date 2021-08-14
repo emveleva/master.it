@@ -12,7 +12,7 @@ import { Course } from 'src/app/models/course.model';
   styleUrls: ['./add-edit-course.component.scss'],
 })
 export class AddEditCourseComponent implements OnInit {
-  allowCreateEdit!: boolean;
+  allowCreateEdit: boolean = true;
   courses!: Course[];
   course!: Course;
   courseName!: string;
@@ -107,6 +107,7 @@ export class AddEditCourseComponent implements OnInit {
               }
             }
             if (this.allowCreateEdit) {
+              console.log(this.allowCreateEdit)
               this.courseService.insertCourse(this.form.value).subscribe({
                 next: () => {
                   this.notification = 'New course added!';
@@ -126,6 +127,7 @@ export class AddEditCourseComponent implements OnInit {
               this.courseService.updateCourse(this.form.value).subscribe({
                 next: () => {
                   this.notification = 'Course edited!';
+                  console.log('hereee')
                   this.dialogRef.close({
                     result: this.allowCreateEdit,
                     message: this.notification,

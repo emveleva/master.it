@@ -13,7 +13,7 @@ import { DashboardService } from 'src/app/services/dashboard.service';
 })
 export class SignedUpListComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['name', 'start', 'end', 'lecturer', 'category', 'language', 'difficulty'];
-  courses!: any;
+  courses: any = [];
   course!: Course[];
   userId!: string;
   @ViewChild(MatPaginator)

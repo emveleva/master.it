@@ -28,19 +28,19 @@ allowSignUp: boolean = true;
    }
 
   ngOnInit() {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    if (this.id){
-      this.getCourseInfo(this.id)
-    }
+   this.getCourseInfo();
 
   }
-  getCourseInfo(id: string){
-    this.courseService.getOneCourse(id).subscribe({
+
+  getCourseInfo(){
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    if (this.id){
+    this.courseService.getOneCourse(this.id).subscribe({
       next: (res: any) => {
-        console.log(res)
         this.course = res
       }
     })
+  }
   }
   
   signUp(courseName: string, id: string){
@@ -113,7 +113,11 @@ allowSignUp: boolean = true;
     const ref = this.dialogRef.open(AddEditCourseComponent, dialogConfig);
     ref.afterClosed().subscribe({
       next: (res: any) => {
+        console.log(res)
         if (res.result) {
+          console.log(res)
+          this.getCourseInfo();
+          console.log(this.activatedRoute.snapshot.paramMap.get('id'))
           this.notificationsService.success(res.message);
         }
       },

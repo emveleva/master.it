@@ -1,8 +1,9 @@
 <mat-progress-bar *ngIf="!courses" mode="indeterminate"></mat-progress-bar>
 
 <section class="wrapper">
-  <article class="table-container">
-    <!-- <h2 *ngIf="courses.length == 0">You haven't signed up for any courses yet.</h2> -->
+  <h2 *ngIf="courses.length == 0">You haven't signed up for any courses yet.</h2>
+  <article *ngIf="courses.length > 0" class="table-container">
+    
 <table *ngIf="courses" mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
   <ng-container matColumnDef="name">
