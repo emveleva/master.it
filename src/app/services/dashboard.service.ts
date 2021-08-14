@@ -19,9 +19,6 @@ export class DashboardService {
             return this.http.get<User>(`${environment.apiUrl}users/${id}`)
           }
 
-    getCourses(id: string){
-      return this.http.get(`${environment.apiUrl}users/${id}`)
-    }
     updateCourses(id: string, courses: []){
       return this.http.patch(`${environment.apiUrl}users/${id}`, {courses: courses}, this.httpOptions)
     }

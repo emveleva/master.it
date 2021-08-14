@@ -26,8 +26,8 @@ export class CourseService {
       return this.http.put(`${environment.apiUrl}courses/${course.id}`, course, this.httpOptions);
     }
   
-    deleteCourse(id: string) {
-      return this.http.delete(`${environment.apiUrl}courses/${id}`);
+    deleteCourse(id: string): Observable<Course[]> {
+      return this.http.delete<Course[]>(`${environment.apiUrl}courses/${id}`);
     }
 
     getOneCourse(id: string){

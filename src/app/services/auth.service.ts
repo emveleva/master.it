@@ -36,9 +36,9 @@ export class AuthService {
       return false;
     }
   }
-  register(email: string, password: string, courses: []) {
+  register(email: string, password: string, courses: []):  Observable<AuthResponse>  {
     let user = { email, password, courses };
-    return this.http.post(`${this.authUrl}register`, user, this.httpOptions);
+    return this.http.post<AuthResponse>(`${this.authUrl}register`, user, this.httpOptions);
   }
   login(user: User): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${environment.apiUrl}login`, user);

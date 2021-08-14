@@ -53,7 +53,7 @@ allowSignUp: boolean = true;
     });
     dialogRef.afterClosed().subscribe((dialogResult) => {
       if (dialogResult) {
-        this.dashboardService.getCourses(userId).subscribe({
+        this.dashboardService.getCourses$(userId).subscribe({
           next: (res: any) => {
             const courses = res.courses;
             courses.forEach((currentCourse: { name: string; }) => {
@@ -101,7 +101,7 @@ allowSignUp: boolean = true;
 
   
   
-  onEdit(courseInfo: any) {
+  onEdit(courseInfo: Course) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -109,7 +109,7 @@ allowSignUp: boolean = true;
     dialogConfig.data = { courseInfo };
     const ref = this.dialogRef.open(AddEditCourseComponent, dialogConfig);
     ref.afterClosed().subscribe({
-      next: (res: any) => {
+      next: (res) => {
         if (res.result) {
           this.getCourseInfo();
           this.notificationsService.success(res.message);
