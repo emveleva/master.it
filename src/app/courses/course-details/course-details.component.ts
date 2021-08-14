@@ -55,9 +55,7 @@ allowSignUp: boolean = true;
       if (dialogResult) {
         this.dashboardService.getCourses(userId).subscribe({
           next: (res: any) => {
-            console.log(res)
             const courses = res.courses;
-            console.log(courses)
             courses.forEach((currentCourse: { name: string; }) => {
               if (currentCourse.name == courseName){
                 this.allowSignUp = false;
@@ -79,7 +77,6 @@ allowSignUp: boolean = true;
               this.courseService.getSignedUsers(id)
               .subscribe({
                 next: (res: any) => {
-                  console.log(res)
                   const signedUsers = res.signedUsers;
                   signedUsers.push(userId)
                   this.courseService.updateSignedUsers(id, signedUsers).subscribe({
@@ -113,11 +110,8 @@ allowSignUp: boolean = true;
     const ref = this.dialogRef.open(AddEditCourseComponent, dialogConfig);
     ref.afterClosed().subscribe({
       next: (res: any) => {
-        console.log(res)
         if (res.result) {
-          console.log(res)
           this.getCourseInfo();
-          console.log(this.activatedRoute.snapshot.paramMap.get('id'))
           this.notificationsService.success(res.message);
         }
       },

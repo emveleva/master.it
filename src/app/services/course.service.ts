@@ -19,10 +19,10 @@ export class CourseService {
   getCourses$(): Observable<Course[]> {
       return this.http.get<Course[]>(`${environment.apiUrl}courses`);
     }
-    insertCourse(course: any) {
+    insertCourse(course: Course) {
       return this.http.post(`${environment.apiUrl}courses`, course, this.httpOptions)
     }
-    updateCourse(course: any) {
+    updateCourse(course: Course) {
       return this.http.put(`${environment.apiUrl}courses/${course.id}`, course, this.httpOptions);
     }
   

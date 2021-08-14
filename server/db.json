@@ -16,6 +16,29 @@
           "category": "Marketing",
           "language": "German",
           "signedUsers": []
+        },
+        {
+          "id": 4,
+          "name": "Enlightenmen",
+          "imgUrl": null,
+          "description": "English literature is nothing without the Enlightenment period.",
+          "lecturer": "Dorothy Smith",
+          "startDate": "2021-08-23T21:00:00.000Z",
+          "endDate": "2021-08-30T21:00:00.000Z",
+          "difficultyLevel": "Intermediate",
+          "category": "Literature",
+          "language": "English",
+          "signedUsers": [
+            "6",
+            "6",
+            "6",
+            "6",
+            "6",
+            "6",
+            "6",
+            "6",
+            "8"
+          ]
         }
       ],
       "id": 1
@@ -284,7 +307,8 @@
         "6",
         "6",
         "6",
-        "8"
+        "8",
+        "1"
       ]
     },
     {

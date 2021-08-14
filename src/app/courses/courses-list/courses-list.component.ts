@@ -52,6 +52,5 @@ export class CoursesListComponent implements OnInit {
 
   openDetails(course: Course){
     this.router.navigate([`courses/${course.id}`])
-    console.log('here')
   }
 }
