@@ -36,7 +36,7 @@ allowSignUp: boolean = true;
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     if (this.id){
     this.courseService.getOneCourse(this.id).subscribe({
-      next: (res: any) => {
+      next: (res) => {
         this.course = res
       }
     })

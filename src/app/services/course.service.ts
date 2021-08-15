@@ -30,8 +30,8 @@ export class CourseService {
       return this.http.delete<Course[]>(`${environment.apiUrl}courses/${id}`);
     }
 
-    getOneCourse(id: string){
-          return this.http.get(`${environment.apiUrl}courses/${id}`)
+    getOneCourse(id: string):  Observable<Course>{
+          return this.http.get<Course>(`${environment.apiUrl}courses/${id}`)
     }
 
     getSignedUsers(id: string){
